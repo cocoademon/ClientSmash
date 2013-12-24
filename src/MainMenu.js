@@ -37,11 +37,11 @@ BasicGame.MainMenu.prototype = {
 
 		this.game.add.tween(this.titleText).to({
 			y: this.game.height / 2 - this.titleText.height
-		}, 1200, Phaser.Easing.Bounce.Out, true)
+		}, 1200, Phaser.Easing.Bounce.Out, true);
 
 		this.game.add.tween(graphics).to({
 			y: this.game.height / 2
-		}, 400, Phaser.Easing.Linear.None, true)
+		}, 400, Phaser.Easing.Linear.None, true);
 
 		this.subtitleText = this.game.add.bitmapText(this.game.width, this.game.height / 2 + 10, "Take 'em out!",
 			{ font: 'title', align: 'center' });
@@ -53,15 +53,15 @@ BasicGame.MainMenu.prototype = {
 
 		this.game.add.tween(this.subtitleText).to({
 			x: (this.game.width - this.subtitleText.width) / 2
-		}, 400, Phaser.Easing.Linear.None, true, 1500)
+		}, 400, Phaser.Easing.Linear.None, true, 1500);
 
 		this.game.add.tween(this.startText).to({
 			x: (this.game.width - this.startText.width) / 2
-		}, 400, Phaser.Easing.Linear.None, true, 1500)
+		}, 400, Phaser.Easing.Linear.None, true, 1500);
 
 		this.game.add.tween(this.fist).to({
 			y: (this.game.height / 2) - this.fist.height
-		}, 400, Phaser.Easing.Linear.None, true, 1500)
+		}, 400, Phaser.Easing.Linear.None, true, 1500);
 
 
 		this.playButton = this.add.button(
