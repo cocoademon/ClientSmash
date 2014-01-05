@@ -67,10 +67,13 @@ BasicGame.Game = function (game) {
 
     this.replacements = {
 
-        ambiguouser: ['edgier', 'smoother', 'fizzier', 'more WOW!', 'more... shazam!', 'more... extreme'],
+        ambiguouser: [
+            'edgier', 'more enigmatic', 'more seductive', 'cuddlier',
+            'poppier', 'more ambiguous', 'fizzier', 'more WOW!',
+            'more... shazam!', 'more... extreme', 'zazzier', 'more razzle-dazzle'],
         balls: ['balls', 'nuts', 'bangs', 'asaurus', 'alicious', 'enstein'],
         I: ['I', 'my {rello}', 'we'],
-        cani: ['can {I}', "can't {I} just", "why can't {I}"],
+        cani: ['can {I}', "can't {I} just", "why can't {I}", 'can {I} just'],
         canipayyouin: ['{cani} pay you in', '{doyou} accept payment in'],
         canyou: ['can {you}', "can't {you} just", 'how about you', "why can't {you}", "wouldn't it be simple to just"],
         concepts: ['concepts', 'ideas', 'designs'],
@@ -83,15 +86,17 @@ BasicGame.Game = function (game) {
         it: ['it', 'the {nicething}', 'the {scarything}', 'the {designeditem}', 'my {designeditem}'],
         mybosses: ["my boss's", "the director's", "my"],
         nastier: ['edgier', 'more aggressive', 'less toothy', 'less innocent', 'wetter', 'older', 'nastier', 'meaner'],
-        nicer: ['more friendly', 'happier', 'more cheerful', 'younger', 'more tween', 'more hip', 'funnier'],
-        nicething: ['baby', 'puppy', 'children', 'Santa', 'elderly couple'],
+        nicer: ['more friendly', 'happier', 'more cheerful', 'younger', 'more teenage', 'more hip', 'funnier', 'more sexy', 'sexier', 'funkier'],
+        nicething: ['baby', 'puppy', 'children', 'Santa', 'elderly couple', 'salad', 'icecream', 'honeymooners'],
+        coldthing: ['snow', 'ice', 'snowman', 'iceberg'],
+        warmer: ['warmer', 'hotter'],
         paymentin: ['beer', 'backrubs', 'pirated DVDs', 'cheese', 'bitcoin', 'pizza', '2018'],
         photoshop: ['photoshop', 'photochop', 'tweak'],
         rello: ['nephew', 'cousin', 'wife', 'daughter', 'son', 'mother', 'father'],
         rellotype: ['colourblind', 'artisty', 'creative', 'artsy-fartsy'],
         relative: ['{rellotype} {rello}', '{rello}'],
         scarything: ['dragon', 'pitbull', 'spikes', 'old lady'],
-        software: ['Windows PC', 'Word', 'Adobes', 'Powerpoint', 'Publisher'],
+        software: ['Windows', 'Word', 'WordArt', 'MS Paint', 'Adobes', 'Powerpoint', 'Publisher'],
         somethingstupid: ['totes {stupidthing}', '{stupidthing}', 'uber {stupidthing}'],
         stupidthing: ['amaz{eballs}', 'rad{balls}', 'YOLO{balls}', 'cray-cray'],
         tech: ['Adobes', 'Microsoft', 'Word', 'Comic Sans', 'Windows PCs', 'crayons', 'computers', 'Apples'],
@@ -103,7 +108,23 @@ BasicGame.Game = function (game) {
         slogan: ['slogan', 'byline', 'catchcry'],
         awfulslogan: [
             'Put the FUN back in fungus', 'Dial C for Chlamydia', 'Open up and say "Beef"',
-            '2 Cheesy 4 U', 'Now with Flavour-Cysts', 'Tight like a Nun']
+            '2 Cheesy 4 U', 'Now with Flavour-Cysts', 'Tight like a Nun'],
+        canyouchangeit: [
+            'can you change it to something else', 'can you change it',
+            'do you think you can change it',
+            'try something else', 'do something different'
+        ],
+        ilove: ['absolutely love', 'I love', 'I adore', 'my {rello} loves'],
+        aspect: ['colour', 'layout', 'whole thing', 'design', 'font'],
+        ihateit: ["I don't like it", 'I hate it', "It's awful"],
+        imsure: ["I'm pretty sure", "I think", "My {rello} thinks"],
+        logo: ['logo', 'artwork', 'illustration'],
+        hello: ['Hey', "'Sup", 'yo', 'hey'],
+        iveattached: ["I've attached", "here's", "here is", 'I sent'],
+        designterm: ['kerneling', 'kerning', 'CMYK', 'drop shadow', 'embossing', 'fonts', 'gutters', 'pixels', 'quarks'],
+        printit: ['print it', 'print it out'],
+        atofficeworks: ['at OfficeWorks', 'at home', 'at Big W', 'at K-Mart', "on my {rello}'s printer"],
+        online: ['online', 'on the Internet'],
     };
 
     this.quotes = [
@@ -114,15 +135,22 @@ BasicGame.Game = function (game) {
         "I'll send you {content} next week, but I need proofs by {tightdeadline}.",
         "{canyou} {photoshop} the {scarything} to be {nicer}?",
         "{canyou} make the {nicething} {nastier}?",
+        "{photoshop} the {coldthing} {warmer}?",
         "Your {concepts} {won}, but we're going with {mybosses} {relative}.",
         "{canyou} make {it} {ambiguouser}?",
         "Make it {nicer}, but also {nastier}.",
         "My {relative} thinks {it} should be {ambiguouser}.",
-        "If {you} could {getitdoneby} {tightdeadline} would be {somethingstupid}.",
+        "If {you} could {getitdoneby} {tightdeadline}, that would be {somethingstupid}.",
         "Our {designeditem} needs to say \"{somethingstupid}!\"",
         "The {designeditem} needs our {slogan}: '{awfulslogan}!'",
         "{canipayyouin} {paymentin}?",
-        "I'm pretty sure you spelled \"{wrongword}\" wrong",
+        "{imsure} you spelled \"{wrongword}\" wrong",
+        "{ilove} the {aspect}, but {canyouchangeit}?",
+        "{ihateit}, but I don't know why.",
+        "{hello}, {iveattached} my {logo}, {I} made it in {software}",
+        "{iveattached} the {logo}, {I} found it {online}",
+        "{hello}, can you use more {designterm}?",
+        "{cani} {printit} {atofficeworks}?"
     ];
 };
 
@@ -179,7 +207,7 @@ BasicGame.Game.prototype = {
     {
         if(typeof(this.quotesUntilShuffle) === 'undefined') { this.quotesUntilShuffle = 0; }
 
-        if(this.quotesUntilShuffle == 0)
+        if(this.quotesUntilShuffle === 0)
         {
             Phaser.Math.shuffleArray(this.quotes);
             this.quotesUntilShuffle = this.quotes.length;
